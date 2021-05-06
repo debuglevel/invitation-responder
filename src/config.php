@@ -7,5 +7,20 @@ function build_subject() {
 }
 
 function build_message($token, $attendence) {
-    return "Token: $token\r\nTeilnahme: $attendence";
+
+$accept = $attendence == "Accept" ? "True" : "False";
+$reject = $attendence == "Reject" ? "True" : "False";
+
+    $str = <<<EOD
+
+Invitation Response
+
+Token: $token
+Attendence: $attendence
+Accept: $accept
+Reject: $reject
+
+EOD;
+
+    return $str;
 }
